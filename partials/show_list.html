@@ -1,0 +1,46 @@
+<div class="flexList">
+
+<div ng-app="myApp">
+    <div ng-controller="ctrl">
+        <mylist element="EquipmentName in equipment">{{EquipmentName}}</mylist>
+    </div>
+</div>
+
+
+
+
+
+    <div  style="padding:0 8px;" ng-repeat="equipment in ctrl.Equipment">
+        <!-- <img style="width:100%;" ng-src="{{ equipment.img }}" alt="equipment Image"> -->
+        <h4>
+            <span> Destination: </span>{{equipment.EquipmentName}}</h4>
+        <h6 class="h6left">
+            <span> Climate: </span> {{ equipment.Quantity }} </h6>
+        <h6 class="h6left">
+            <span> Kid Friendly:</span> {{ equipment.Resupply }}</h6>
+        <p >
+            <span> Dates: </span> {{ equipment.Location }}</p>
+
+        <p>
+            <span></span> {{ equipment.description }}</p>
+
+<div>
+    <button ng-click="ctrl.deleteequipment( equipment._id )">remove</button>
+
+     <!-- Show HTML: -->
+    Edit Info <input type="checkbox" ng-model="myVar" ng-click="ctrl.editequipment( equipment )">
+    
+    <div ng-show="myVar">
+
+            <!-- Beginning update/edit form  -->
+            <!-- ////// Edit Form partials////-->
+            <div ng-include="'partials/edit_form.html'"></div>
+            <!--//////  end partials//// -->
+    </div>
+
+</div>
+
+
+
+</div>
+</div>

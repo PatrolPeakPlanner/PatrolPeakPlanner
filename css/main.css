@@ -1,0 +1,576 @@
+
+.w3-padding{
+  list-style: none;
+}
+.is-visible{
+  animation: Items 600ms linear backwards;
+}
+
+.closeXButton {
+  margin: 2% 0% 0% 88%;
+  display: block;
+  box-sizing: border-box;
+  width: 30px;
+  height: 30px;
+  border-width: 3px;
+  border-style: solid;
+  border-color: grey;
+  border-radius: 100%;
+  background: -webkit-linear-gradient(-45deg, transparent 0%, transparent 45%, white 45%, white 55%, transparent 55%, transparent 100%), -webkit-linear-gradient(45deg, transparent 0%, transparent 45%, white 45%, white 55%, transparent 55%, transparent 100%);
+  background-color: grey;
+}
+
+@keyframes Items {
+  from { opacity: 0;}
+  to { opacity: 1;}
+}
+
+body {
+  padding-bottom: 40px;
+  color: #5a5a5a;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-weight: 400px;
+  background-color: #f4f4f4;
+}
+
+h3, h4, p, b, h6 {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-weight: 400px;
+}
+
+h6 {
+
+  text-align: center;
+  justify-content: center;
+  }
+
+.h6left {
+  text-align: left;
+  }
+
+/* Special class on .container surrounding .navbar, used for positioning it into place. */
+.navbar-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 20;
+}
+
+/* Flip around the padding for proper display in narrow viewports */
+.navbar-wrapper > .container {
+  padding-right: 0;
+  padding-left: 0;
+  position: fixed;
+  z-index: 1000000000 !important;
+}
+.navbar-wrapper .navbar {
+  padding-right: 15px;
+  padding-left: 15px;
+
+}
+.navbar-wrapper .navbar .container {
+  width: auto;
+}
+
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+
+/* Carousel base class */
+.carousel {
+  height: 500px;
+  margin-bottom: 60px;
+}
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+  z-index: 10;
+}
+
+/* Declare heights because of positioning of img element */
+.carousel .item {
+  height: 500px;
+  background-color: #777;
+}
+.carousel-inner > .item > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  height: 500px;
+}
+
+/*CARDS
+-------------------------------------------------- */
+
+.card {
+  float: left;
+  width: 33.333%;
+  padding: .75rem;
+  margin-bottom: 2rem;
+  border: 0;
+  border-radius: 3px;
+  padding: 0px 4px 0px 0px;
+}
+
+.card > img {
+  margin-bottom: .75rem;
+}
+
+.card-text {
+  font-size: 85%;
+}
+
+.card-img-top  {
+  height: 180px;
+  width: 300px;
+
+}
+
+
+/*RESPONSIVE CSS
+-------------------------------------------------- */
+
+@media (min-width: 768px) {
+  /* Navbar positioning foo */
+  .navbar-wrapper {
+    margin-top: 20px;
+  }
+  .navbar-wrapper .container {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  .navbar-wrapper .navbar {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  /* The navbar becomes detached from the top, so we round the corners */
+  .navbar-wrapper .navbar {
+    border-radius: 4px;
+  }
+
+  /* Bump up size of carousel content */
+  .carousel-caption p {
+    margin-bottom: 20px;
+    font-size: 21px;
+    line-height: 1.4;
+  }
+
+  .featurette-heading {
+    font-size: 50px;
+  }
+}
+
+@media (min-width: 992px) {
+  .featurette-heading {
+    margin-top: 120px;
+  }
+}
+
+.detailsAbstract {
+	width: 100%;
+	overflow: hidden;
+	padding: 5px;
+	margin: 5px;
+
+}
+ul {
+	margin: 0 0;
+
+}
+li {
+list-style-type: square;
+}
+
+textarea {
+   resize: none;
+}
+
+.centerTop {
+	text-align: center;
+		justify-content: center;
+}
+
+.chooseCountry {
+	width: 42%;
+	border: 1px solid black;
+		padding: 1%;
+	margin: 1%;
+}
+
+.detailsTop {
+	width: 100%;
+	padding: 5px;
+	margin: 5px;
+}
+
+.detailsInfo {
+	display: flex;
+	flex-direction: row;
+}
+.flex {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.details {
+	border: 1px solid black;
+ 
+    max-width: 350px;
+	padding: 1%;
+    margin: 10px 10px ;
+ 
+    color: #162521;
+    letter-spacing: .1px;
+    text-align: justify;
+    align-content: stretch;
+
+}
+
+.createForm {
+    width: 100%;
+    text-align: center;
+    padding: 5px 10%;
+
+}
+
+
+.right {
+	width:20%;
+}
+
+.left {
+	width:60%;
+}
+
+.NewDataForm {
+	width: 94%;
+	border: 1px solid black;
+	padding: 10px;
+	margin: auto;
+}
+
+.AbstractWidth {
+	width: 50%;
+}
+
+.navOne {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #BB999C;
+    color: #162521;
+}
+
+.logo {
+    margin: 0px 10px;
+    font-size: 30px;
+    padding: 5px;
+    width: 20%;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-style: normal;
+}
+
+
+.logo2 {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-style: normal;
+    padding-top: 180px;
+    font-size: 90px;
+    color: white;
+}
+
+.loginAtag {
+    margin: 20px 0;
+}
+
+.menu {
+    display: flex;
+    flex-direction: row-reverse;
+    margin: 0 10px ;
+    padding: 2px 10px 2px 2px;
+    width: 400px;
+}
+
+.menuImg {
+    margin: 7px 0 0 0;
+}
+
+
+.containerOne {
+  margin: 0px;
+
+}
+
+.welcome {
+    margin: 20px 10px;
+    /* width: 100%; */
+}
+
+.NewNavBara {
+    display: block;
+    color: #9d9d9d;
+    /*text-align: center;*/
+    margin: 5px 5px;
+    margin-left: 10px;
+    padding: 5px 5px;
+    text-decoration: none !important;
+    text-shadow: 2px white;
+
+}
+
+.NewNavBara:hover {
+    color: white;
+    text-decoration: none;
+}
+
+.NewNavBaraWelcome {
+    display: block;
+    color: black;
+    text-align: center;
+    margin: 5px 5px;
+    padding: 5px 5px;
+    text-decoration: none;
+
+}
+
+.NewNavBarli {
+  color: black;
+  margin: 5px 5px;
+}
+
+
+.MenuThreeLinesSymbol {
+	color: black;
+	color: black;
+  margin: 5px 5px;
+  padding: 5px 5px;
+	float: right;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+.MenuThreeLinesSymbol:hover {
+  color: white;
+}
+
+.rightDivNav {
+    text-decoration: none ;
+}
+
+
+
+/* side nav */
+
+
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    top: 0;
+    right: 0;
+    background-color: white;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 12px 8px 12px 12px;
+    text-decoration: none;
+    color: #71697A;
+    display: block;
+    transition: 0.3s;
+    text-align: left;
+}
+
+.sidenav {
+  width: 0px;
+  font-size: 20px;
+}
+
+.sidenav a:hover {
+  color: #71697A
+}
+.closebtn {
+    position: absolute;
+    top: 0px;
+    color: #71697A;
+    margin: 5px 5px;
+    padding: 5px 5px;
+    font-size: 36px;
+}
+
+.directions {
+    text-align: center;
+}
+
+.head {
+    background-image: url(/css/images/pexels-photo-59519.jpeg);
+    background-size: cover;
+  background-repeat: no-repeat;
+
+    background-position: center;
+    height: 500px;
+    text-align: center;
+}
+
+.center {
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    padding: 10px 15px;
+    width:80%;
+}
+.container {
+  width: 100% !important;
+  padding: 0;
+}
+
+.tableDiv{
+    margin: 0 0;
+}
+
+table {
+    border: 1px solid black;
+    text-align: left;
+}
+
+.button {
+    font-size: 5px;
+}
+
+.travelList {
+    font-size: 25px;
+}
+
+.flexList {
+     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    color: #162521;
+    margin: 5px 5px;
+    padding: 2px 5%;
+    height: auto;
+    min-width:450px;
+    /* border: 1px solid black; */
+}
+
+.ng-scope {
+    margin: 0 0;
+}
+
+.climate {
+    margin: 0 0;
+}
+
+.mySlides {
+    display: none
+}
+
+
+
+.sideNavH2 {
+  color: black;
+  text-align: center;
+}
+
+
+
+
+/* Sky Scanner Flights */
+.skyscannerFlights {
+margin: 5% 20%;
+}
+
+.widget + .widget {
+  margin: 5px;
+  display: block;
+}
+/* end sky scanner */
+
+.third {
+    width: 30%;
+    text-align: justify;
+    /* padding: 1%; */
+    margin: 1%;
+    /* border: 1px solid black; */
+}
+
+.editInfo {
+  position:relative;
+  text-align: center;
+	background-color: white;
+  top: 15%;
+  /*left:30%;*/
+  margin-top: 200px;
+	height: 398px;
+	width: 258px;
+	border-radius: 2px;
+	box-shadow: 0 2px 2px rgba(0,0,0,.2);
+  text-align: left;
+  padding: 5% 5%;
+  margin: 0 auto;
+
+}
+
+
+/*side nav*/
+
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: white;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding: 60px 0 0 10px;
+}
+
+.sidenav a {
+    padding: 12px 8px 12px 12px;
+    text-decoration: none;
+    color: #71697A;
+    display: block;
+    transition: 0.3s;
+    text-align: left;
+}
+
+/* .form-group {
+  margin: 0 50px 0 0;
+}
+
+.form-control{
+  margin: 0 50px 0 0;
+} */
+
+.formWidth {
+  width: 90%;
+}
+
+.sidenav {
+  width: 0px;
+  font-size: 20px;
+}
+
+.sidenav a:hover {
+  color: #71697A
+}
+
+.closebtn {
+    position: absolute;
+    top: 0px;
+    color: #71697A;
+    margin: 50px 5px 5px 5px;
+    padding: 5px 5px;
+    font-size: 36px;
+}
+

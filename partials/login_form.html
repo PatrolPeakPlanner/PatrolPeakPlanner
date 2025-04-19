@@ -1,0 +1,26 @@
+
+        <br><br>
+        <h2 class="sideNavH2">Login</h2>
+        <form class="formWidth" ng-submit='ctrl.loginUser()'>
+            <div class="form-group">
+                <label for="pwd">Username:</label>
+                <input type="text" class="form-control" placeholder="username" ng-model="ctrl.loginForm.username" />
+            </div>
+            <div class="form-group">
+                <label for="pwd">Password:</label>
+                <input type="password" class="form-control" placeholder="password" ng-model="ctrl.loginForm.password" />
+            </div>
+            <div class="checkbox">
+                <label><input type="checkbox"> Remember me</label>
+            </div>
+            <input type="submit" ng-click="ctrl.closeNav()"/>
+        </form>
+
+        <form ng-if='ctrl.user' ng-submit='ctrl.logout()'>
+            <input type='submit' value='logout' />
+        </form>
+
+
+        <button ng-click="ctrl.closeNav()">Return to Website</button>
+
+
