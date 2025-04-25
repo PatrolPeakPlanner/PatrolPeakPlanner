@@ -16,25 +16,22 @@
 
     <base href="/" target="_blank">
 
-    <!-- ! Bootstrap CDN -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+ 
+ 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
         integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+ 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
     <link rel="stylesheet" href="/css/main.css">
 
-    <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
-    <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
 
+<link href="/Users/ptk726/Desktop/dev/PatrolPeakPlanner/css/main.css" rel="stylesheet" type="text/css">
 
 </head>
 
-<body style="max-width: 600px; margin: 0 auto;" ng-app="myApp" ng-controller="myCtrl">
+<body style="max-width: 600px; margin: 0 auto;">
 
     <!--//////  Partials nav ////-->
     <div style="max-width: 600px; margin: 0 auto;" class="is-visible" ng-include="'partials/nav.html'"></div>
@@ -61,7 +58,10 @@
 </a>
 <a href="https://patrolpeakplanner.github.io/PatrolPeakPlanner/index.html"><button style="font-size: 12px;">SKI PATROL</button>
 </a>
-<a href="https://patrolpeakplanner.github.io/PatrolPeakPlanner/home.html"><button style="font-size: 12px;">LOGIN
+<a href="/Users/ptk726/Desktop/dev/PatrolPeakPlanner/index.html"><button style="font-size: 12px;">LOGIN
+    </button>
+</a>
+<a href="/Users/ptk726/Desktop/dev/PatrolPeakPlanner/index.html"><button style="font-size: 12px;">SIGNUP
     </button>
 </a>
 
@@ -79,6 +79,89 @@
              
 </div>
 
+<!-- Side Nav HTML -->
+<!-- <div id="mySidenav" class="sidenav">
+    <a class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="#">Link 1</a>
+    <a href="#">Link 2</a>
+    <a href="#">Link 3</a>
+</div> -->
+
+<!-- start of login sidenav -->
+<!-- Login Section -->
+<div id="mySidenavLogin" class="sidenav" style="font-size: 12px; display: block; width: 0px; height: 100%; background-color: white; z-index: index 1; text-align: left; padding-left: 30px;">
+    <a class="closebtn" onclick="closeNav()">&times;</a>
+    <br><br>
+    <h2>Login</h2>
+    <input type="email" id="loginEmail" placeholder="Email"><br>
+    <input type="password" id="loginPassword" placeholder="Password"><br>
+    <button onclick="login()">Login</button>
+
+    <!-- Forgot Password Section -->
+    <h2>Forgot Password</h2>
+    <input type="email" id="forgotEmail" placeholder="Email"><br>
+    <button onclick="getSecurityQuestions()">Get Security Questions</button><br>
+    <div id="securityQuestionsSection" style="display:none;">
+        <p id="securityQ1"></p>
+        <input type="text" id="answer1" placeholder="Answer 1"><br>
+        <p id="securityQ2"></p>
+        <input type="text" id="answer2" placeholder="Answer 2"><br>
+        <input type="password" id="newPassword" placeholder="New Password"><br>
+        <button onclick="verifySecurityAnswers()">Reset Password</button>
+    </div>
+</div>
+<!-- end of login side nav -->
+
+
+<!-- start of sign up side nav -->
+    <!-- Sign Up Section -->
+<div id="mySidenavSignUp" class="sidenav"
+    style="font-size: 12px; display: block; width: 0px; height: 100%; background-color: white; z-index: index 1; text-align: left; padding-left: 30px;">
+    <a class="closebtn" onclick="closeSignUp()">&times;</a>
+    <br><br>
+
+    <h2>Sign Up</h2>
+    <input type="text" id="signupName" placeholder="Name"><br>
+    <input type="email" id="signupEmail" placeholder="Email"><br>
+    <input type="password" id="signupPassword" placeholder="Create Password"><br><br>
+    <input type="text" id="securityQuestion1" placeholder="Security Question 1"><br>
+    <input type="text" id="securityAnswer1" placeholder="Answer 1"><br><br>
+    <input type="text" id="securityQuestion2" placeholder="Security Question 2"><br>
+    <input type="text" id="securityAnswer2" placeholder="Answer 2"><br><br>
+    <button onclick="signUp()">Sign Up</button>
+
+</div>
+
+
+
+
+<!-- Add this JavaScript to your <script> -->
+<!-- <script>
+    function openLogin() {
+        document.getElementById("mySidenavLogin").style.width = "350px";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidenavLogin").style.width = "0";
+
+    }
+    function openSignUp() {
+        document.getElementById("mySidenavSignUp").style.width = "350px";
+    }
+    function closeSignUp() {
+            document.getElementById("mySidenavSignUp").style.width = "0";
+
+        }
+    
+</script> -->
+
+
+
+
+
+
+
+
                 <!-- start of middle picture background -->
                 <div
                     style="background-image: url('https://github.com/PatrolPeakPlanner/PatrolPeakPlanner/blob/main/ImagePool.jpg?raw=true'); height: 600px; background-repeat: no-repeat; background-size: cover; text-align: left; padding: 0 50px; font-size: 36px; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; color: white; text-shadow: 0px 0px 50px black">
@@ -94,7 +177,6 @@
                       
     
         <br><br><br>
-
 
 
 

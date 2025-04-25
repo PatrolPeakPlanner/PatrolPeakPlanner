@@ -1,0 +1,216 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>User CRUD App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+
+        input,
+        button {
+            margin: 5px;
+            padding: 5px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>Sign Up</h2>
+<input type="text" id="signupName" placeholder="Name">
+<input type="email" id="signupEmail" placeholder="Email">
+<input type="password" id="signupPassword" placeholder="Password">
+<button onclick="signUp()">Sign Up</button>
+
+<h2>Login</h2>
+<input type="email" id="loginEmail" placeholder="Email">
+<input type="password" id="loginPassword" placeholder="Password">
+<button onclick="login()">Login</button>
+
+<h2>Forgot Password</h2>
+<input type="email" id="resetEmail" placeholder="Email">
+<input type="password" id="resetPassword" placeholder="New Password">
+<button onclick="resetPassword()">Reset Password</button>
+
+
+<h2>Forgot Password</h2>
+<input type="email" id="forgotEmail" placeholder="Email">
+<button onclick="sendResetLink()">Send Reset Link</button>
+
+<script>
+    async function sendResetLink() {
+        const email = document.getElementById('forgotEmail').value;
+        const res = await fetch(`${apiUrl}/forgot-password`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email })
+        });
+        const data = await res.json();
+        alert(JSON.stringify(data));
+    }
+</script>
+
+
+
+<script>
+    const apiUrl = 'http://localhost:3000';
+
+    async function signUp() {
+        const name = document.getElementById('signupName').value;
+        const email = document.getElementById('signupEmail').value;
+        const password = document.getElementById('signupPassword').value;
+        const res = await fetch(`${apiUrl}/signup`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, email, password })
+        });
+        const data = await res.json();
+        alert(JSON.stringify(data));
+    }
+
+    async function login() {
+        const email = document.getElementById('loginEmail').value;
+        const password = document.getElementById('loginPassword').value;
+        const res = await fetch(`${apiUrl}/login`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, password })
+        });
+        const data = await res.json();
+        alert(JSON.stringify(data));
+    }
+
+    async function resetPassword() {
+        const email = document.getElementById('resetEmail').value;
+        const newPassword = document.getElementById('resetPassword').value;
+        const res = await fetch(`${apiUrl}/reset-password`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, newPassword })
+        });
+        const data = await res.json();
+        alert(JSON.stringify(data));
+    }
+</script>
+
+
+<h2>Login</h2>
+<input type="email" id="loginEmail" placeholder="Email">
+<input type="password" id="loginPassword" placeholder="Password">
+<button onclick="login()">Login</button>
+
+<script>
+    let token = '';
+
+    async function login() {
+        const email = document.getElementById('loginEmail').value;
+        const password = document.getElementById('loginPassword').value;
+        const res = await fetch(`${apiUrl}/login`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, password })
+        });
+        const data = await res.json();
+        if (data.token) {
+            token = data.token;
+            alert('Login successful!');
+        } else {
+            alert(JSON.stringify(data));
+        }
+    }
+
+    async function getUsers() {
+        const res = await fetch(`${apiUrl}/users`, {
+            headers: { 'Authorization': 'Bearer ' + token }
+        });
+        const data = await res.json();
+        alert(JSON.stringify(data));
+    }
+</script>
+
+<!-- Add this to test protected route -->
+<button onclick="getUsers()">Get Users (Protected)</button>
+
+
+
+    <h1>User Management</h1>
+
+    <h2>Add New User</h2>
+    <input type="text" id="userName" placeholder="Name">
+    <input type="email" id="userEmail" placeholder="Email">
+    <button onclick="addUser()">Add User</button>
+
+    <h2>Users List</h2>
+    <ul id="usersList"></ul>
+
+    <script>
+        // const apiUrl = 'http://localhost:3000/users';
+
+        // Fetch and display all users
+        async function fetchUsers() {
+            const response = await fetch(apiUrl);
+            const users = await response.json();
+            const list = document.getElementById('usersList');
+            list.innerHTML = '';
+            users.forEach(user => {
+                const li = document.createElement('li');
+                li.innerHTML = `
+          <strong>${user.name}</strong> (${user.email})
+          <button onclick="deleteUser(${user.id})">Delete</button>
+          <button onclick="editUser(${user.id}, '${user.name}', '${user.email}')">Edit</button>`;
+                list.appendChild(li);
+            });
+        }
+
+        // Add a new user
+        async function addUser() {
+            const name = document.getElementById('userName').value;
+            const email = document.getElementById('userEmail').value;
+            await fetch(apiUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, email })
+            });
+            document.getElementById('userName').value = '';
+            document.getElementById('userEmail').value = '';
+            fetchUsers();
+        }
+
+        // Delete a user
+        async function deleteUser(id) {
+            await fetch(`${apiUrl}/${id}`, { method: 'DELETE' });
+            fetchUsers();
+        }
+
+        // Edit a user
+        async function editUser(id, currentName, currentEmail) {
+            const newName = prompt('Edit Name:', currentName);
+            const newEmail = prompt('Edit Email:', currentEmail);
+            if (newName && newEmail) {
+                await fetch(`${apiUrl}/${id}`, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name: newName, email: newEmail })
+                });
+                fetchUsers();
+            }
+        }
+
+        // Initial fetch
+        fetchUsers();
+    </script>
+</body>
+
+</html>

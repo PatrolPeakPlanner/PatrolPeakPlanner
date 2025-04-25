@@ -364,36 +364,41 @@ textarea {
 
 /* side nav */
 
-
-
 .sidenav {
-    height: 100%;
-    width: 0;
-    top: 0;
-    right: 0;
-    background-color: white;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  /* Right side */
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.3s;
+  padding-top: 60px;
 }
 
 .sidenav a {
-    padding: 12px 8px 12px 12px;
-    text-decoration: none;
-    color: #71697A;
-    display: block;
-    transition: 0.3s;
-    text-align: left;
-}
-
-.sidenav {
-  width: 0px;
-  font-size: 20px;
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #fff;
+  display: block;
+  transition: 0.3s;
 }
 
 .sidenav a:hover {
-  color: #71697A
+  color: #f1f1f1;
 }
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
 .closebtn {
     position: absolute;
     top: 0px;
@@ -532,7 +537,7 @@ margin: 5% 20%;
     background-color: white;
     overflow-x: hidden;
     transition: 0.5s;
-    padding: 60px 0 0 10px;
+    padding: 10px 0 0 10px;
 }
 
 .sidenav a {
@@ -569,7 +574,7 @@ margin: 5% 20%;
     position: absolute;
     top: 0px;
     color: #71697A;
-    margin: 50px 5px 5px 5px;
+    margin: 10px 5px 5px 5px;
     padding: 5px 5px;
     font-size: 36px;
 }

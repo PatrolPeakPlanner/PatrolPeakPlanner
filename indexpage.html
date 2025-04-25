@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Ski Patrol Notifications</title>
+    <title>PatrolPeakPlanner</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.min.js" charset="utf-8"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
@@ -45,41 +45,81 @@
     <div class="mainPicture">
         <div class="mainTopnumber">
 
-        <!-- top nav bar -->
-        <div style="z-index: 10;" class="topnav">
-        
-            <div style="background-color: darkgrey; z-index: 10;" class="topnav1">
-                <a class="aTagTopNavDivLogo" style="font-size: 22px; " href="https://patrolpeakplanner.github.io/PatrolPeakPlanner/index.html">
-                    <div style="z-index: 10; color: black; margin-left:20px;margin-top: 0px;padding-top: 25px;"
-                        class="mainLogo1">
-        
-                        <h3> SKI PATROLLERS MOUNTAIN APP </h3>
-                        <h4> For Daily Ski Patrol Management</h4>
-        
-                    </div>
-                </a>
-                <br>
-            </div>
-        </div>
-        <!-- end top nav -->
 
-            <!-- start of middle picture background -->
-            <div
-                style="background-image: url(https://images.pexels.com/photos/3600569/pexels-photo-3600569.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1); height: 600px;">
+
+
+<!-- top nav bar -->
+<div style="z-index: 10;" class="topnav">
+
+    <div style="background-color: darkgrey; z-index: 10;" class="topnav1">
+        <a class="aTagTopNavDivLogo" style="font-size: 22px; "
+            href="https://patrolpeakplanner.github.io/PatrolPeakPlanner/home.html">
+            <div style="z-index: 10; color: black; margin-left:20px;margin-top: 0px;padding-top: 25px;"
+                class="mainLogo1">
+
+                <h3 style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-size: 36px; color: white; text-shadow: 0px 0px 10px black;">
+                    PATROLPEAKPLANNER </h3>
+        </a>
+        <a href="https://patrolpeakplanner.github.io/PatrolPeakPlanner/home.html"><button
+                style="font-size: 12px;">LIFEGAURD</button>
+        </a>
+        <a href="https://patrolpeakplanner.github.io/PatrolPeakPlanner/index.html"><button style="font-size: 12px;">SKI
+                PATROL</button>
+        </a>
+        <a href="https://patrolpeakplanner.github.io/PatrolPeakPlanner/index.html"><button
+                style="font-size: 12px;">LOGIN
+            </button>
+        </a>
+
+    </div>
+
+    <br>
+</div>
+</div>
+<!-- end of top nav -->
+<!-- start of first top image  -->
+
+<div style="text-align: left;">
+    <!-- <h5> For Lifeguard Productivity</h5> -->
+
+
+</div>
+
+<!-- start of middle picture background -->
+<div
+    style="background-image: url(https://images.pexels.com/photos/3600569/pexels-photo-3600569.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1); height: 600px; background-repeat: no-repeat; background-size: cover; text-align: left; padding: 0 50px; font-size: 36px; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; color: white; text-shadow: 0px 0px 20px black">
+    <br><br><br>
+    <h1 style="font-size: 56px; font-weight: 800;">Ski Patrol Daily Productivity</h1>
+ 
+
+
+    <a href="https://patrolpeakplanner.github.io/PatrolPeakPlanner/SkiPatrolChecklist.html">
+        <h3 style=" color: black; margin: 0px 0px; text-align:left;">
+            <button style="text-align:left ; padding: 5px 10px; font-size: 18px;">VIEW AND SUBSCRIBE</button>
+    </a>
+
+
+    <br><br><br>
+
+
+
+
+
+
 
                 <br><br>
                 <!-- start login -->
                 <div class="modal-text-boxLogin"
-                    style="text-align: center; background-color: white; padding: 10px 10px; margin: 0px 25% ; border-radius: 10px; font-size: 12px;">
+                    style=" display: none; text-align: center; background-color: white; padding: 10px 10px; margin: 0px 25% ; border-radius: 10px; font-size: 12px; ">
                     <div id="openLoginModal">
                         <h4 class="modalh4" style="margin: 0 0; padding: 5px 30px;">Login  PatrolPeakPlanner
                         </h4>
                        
-                        <!-- <div class="incorrectLogin center">
+                        <div class="incorrectLogin center">
                         <% if (message) { %>
                         <%= message %>
                         <% } %>
-                        </div> -->
+                        </div>
 
                         <form action="/user/login" id="modalFormLogin" method="post">
                             <div class="form-group">
@@ -94,7 +134,7 @@
 
                             </div>
                             <div class="checkbox">
-                                <!-- <label><input type="checkbox"> Remember me</label> -->
+                                <label><input type="checkbox"> Remember me</label>
                             </div>
                             <button id="loginbtn" type="submit" class="btn btn-default">Submit</button>
                         </form>
@@ -126,30 +166,23 @@
 <!-- end of divMaxWidth -->
 
 <!-- <div class="footerdivparent"> -->
-<div >
-    <div class="footerDiv" style="background-color: lightgrey; text-align: center;">
 
-        <a href="/Users/ptk726/Desktop/dev/SkiPatrolMountainApp/public/notifications.html">
+    <div class="footerDiv" style="background-color: lightgrey; text-align: left; padding: 10px 50px;">
+<!-- 
+        <a href="https://patrolpeakplanner.github.io/PatrolPeakPlanner/SkiPatrolChecklist.html">
             <h3 style=" margin: 0px 0px; text-align:center;"> <br><br>
-                <button style="text-align:center ; width: 60%; margin: 0px 15%; padding: 10px 10px;" class="payHereButton">Daily
-                    Ski Patrol Notifications </button>
+                <button style="text-align:center ; width: 60%; margin: 0px 15%; padding: 10px 10px;" class="payHereButton">View Checklist </button>
         </a>
-            <h5>Regular Non-Urgent Notifications</h5>
+            <h5>Productivity and Safety Checklist</h5> -->
+<br>
+            <H5 style="font-weight: 400;">A MODIFIABLE CHECKLIST WITH INITIALS</H5>
+            <H5 style="font-weight: 400;">REPLACE PAPER AND PENCIL</H5>
+            <H5 style="font-weight: 400;">IMPROVE PRODUCTIVITY </H5>
 
-        <h3 style="margin: 0px 0px; text-align:center;">  <br><br>
-            <button style="text-align:center ; width: 60%; margin: auto 15%; padding: 10px 10px;" class="payHereButton"
-                onclick="openResupplyEquipmentNav()">Resupply Equipment </button>
-        </h3>
-            <h5>Equipment and Medical Supplies</h5>
-
-        <h3 style="text-align:center; padding-bottom: 0px; margin-bottom: 0px;"> <br><br>
-            <button style="text-align:center ; width: 60%; margin: auto 15%; padding: 10px 10px;" class="payHereButton"
-                onclick="openSafetySignageNav()">Check Safety Signage </button>
-        </h3>
-            <h5>Urgent and Non Urgent Safety Signage</h5>
-<br><br><br>
+      
+<br>
     </div>
-</div>
+
 
 <!-- Side Nav -Ski Patrol Notification Notifications -->
 <div id="mySidenavNotification" style="
@@ -167,7 +200,7 @@
 
     <div style="margin: 20px 20px">
         <div class="closeXButton" onclick="closeNotificationNav()"></div>
-        <h3>Add Ski Patrol Notification Notifications:</h3>
+        <h3>Add Ski Patrol Notifications:</h3>
 
         <form action="/action_page.html">
             <!-- <label for="fname">Add Ski Patrol Notification Location:</label><br> -->
@@ -291,62 +324,7 @@
 </div>
 <!-- end of resupply equipment -->
 
-<!-- Side Nav - Scheduling Ski Patroller Location -->
-<div id="mySidenavScheduling" style="
-            height: 100%;
-            width: 0px;
-            position: fixed;
-            z-index: 4;
-            top: 0;
-            right: 0;
-            background-color: #B4CDE0;
-            overflow-x: hidden;
-            transition: 0.5s;
-            padding-top: 60px;
-            box-shadow: 2px 2px 10px #000000;">
 
-    <div style="margin: 20px 20px">
-        <div class="closeXButton" onclick="closeSchedulingNav()"></div>
-
-        <h3>Add Ski Patroller to Daily Schedule</h3>
-
-        <form action="/action_page.html">
-            <!-- <label for="fname">Patroller Name:</label><br> -->
-            <input type="text" id="fname" name="fname" value="Patroller Name"><br>
-            <!-- <label for="fname">Location:</label><br> -->
-            <input type="text" id="fname" name="fname" value="Location"><br>
-            <!-- <label for="lname">Time:</label><br> -->
-            <input type="text" id="lname" name="lname" value="Time"><br><br>
-            <input type="submit" value="Submit">
-        </form>
-
-        <p>If you click the "Submit" button, the form-data will be sent to a page called "/action_page.html".</p>
-
-        <p>=======================</p>
-
-        <h3>Daily Ski Patroller Schedule:</h3>
-        <p>Name:
-            <br>Location:
-            <br>Time:
-        </p>
-
-        <p>Name:
-            <br>Location:
-            <br>Time:
-        </p>
-
-        <p> Name:
-            <br>Location:
-            <br>Time:
-        </p>
-
-        <p>Name:
-            <br>Location:
-            <br>Time:
-        </p>
-
-    </div>
-</div>
 
 <!-- Side Nav - Safety Signage - Check List -->
 <div id="mySidenavSafetySignage" style="
@@ -400,88 +378,57 @@
     </div>
 </div>
 
-
-    <!-- anchor tag from nav bar -->
-    <a name='Ski Patrol Ski Patrol Notifications'></a>
-
-    <!-- Notification Section -->
-    <div class="w3-grey" id="newSki Patrol Notifications">
-         <div style="max-width:600px">
-
-
-            <ul class="w3-ul w3-border w3-white w3-text-grey">
-                <li class="w3-padding">Ski  Patrol  Notification
-                    <span class="w3-tag w3-red w3-margin-left">Mark Hazards</span>
-                </li>
-                <li class="w3-padding">Ski Patrol  Notification
-                    <span class="w3-tag w3-red w3-margin-left">Check Equipment Level at Hut</span>
-                </li>
-                <li class="w3-padding">Ski Patrol  Notification
-                    <span class="w3-badge w3-right w3-margin-right">Completed Opened Slope Name</span>
-                </li>
-                <li class="w3-padding">Ski Patrol  Notification
-                    <span class="w3-tag w3-red w3-margin-left">Request more Arm Splints at Hut</span>
-                </li>
-                <li class="w3-padding">Ski Patrol  Notification
-                    <span class="w3-tag w3-red w3-margin-left">Request more Leg Splints at Hut</span>
-                </li>
-                <li class="w3-padding">Ski Patrol  Notification
-                    <span class="w3-badge w3-right w3-margin-right">Completed Added Signage Slope name</span>
-                </li>
-            </ul>
-        </div>
-    </div>
         
         
 
         <!-- Resupply Section -->
         <div style="background-color:#F1F1F1; width: 20%">
-            <div id="itineraries">
+            <div id="ResupplyEquipmentID">
                 
             </div>
         </div>
 
-
+</div>
+<!-- end of checklist -->
 <!-- side nav login -->
-<nav class="newNavBar">
+<!-- <nav class="newNavBar"> -->
 
-    <div class="NewNavBarLoginRegister">
+    <!-- <div class="NewNavBarLoginRegister"> -->
 
-        <div class="sidenav" id="mySidenav">
-            <a class="closebtn" ng-click="ctrl.closeNav()">&times;</a>
+        <!-- <div class="sidenav" id="mySidenav"> -->
+            <!-- <a class="closebtn" ng-click="ctrl.closeNav()">&times;</a> -->
             <!--//////  Partials login-form ////-->
-            <div ng-include="'partials/login_form.html'"></div>
+            <!-- <div ng-include="'partials/login_form.html'"></div> -->
             <!--//////  end of login partial ////-->
-        </div>
+        <!-- </div> -->
 
-    </div>
-</nav>
+    <!-- </div> -->
+<!-- </nav> -->
 
 <!-- side nav Register -->
-<nav class="newNavBar">
+<!-- <nav class="newNavBar"> -->
 
-    <div class="NewNavBarLoginRegister">
+    <!-- <div class="NewNavBarLoginRegister"> -->
 
-        <div class="sidenav" id="mySideNavRegister">
-            <a class="closebtn" ng-click="ctrl.closeNavRegister()">&times;</a>
+        <!-- <div class="sidenav" id="mySideNavRegister"> -->
+            <!-- <a class="closebtn" ng-click="ctrl.closeNavRegister()">&times;</a> -->
             <!-- ////// Partials Register Form ////-->
-            <div ng-include="'partials/register.html'"></div>
+            <!-- <div ng-include="'partials/register.html'"></div> -->
             <!--//////  end partials//// -->
-        </div>
+        <!-- </div> -->
 
-    </div>
-</nav>
+    <!-- </div> -->
+<!-- </nav> -->
 <!-- end of side nav -->
 
 <footer>
     <!-- <div class="footerdivparent"> -->
     <div class="footerDiv" style="background-color: lightblue; text-align: center;">
-
-        <p>PatrolPeakPlanner@gmail.com</p>
-        <p>PatrolPeakPlanner LLC</p>
-        <div class="mainLogo1">
-            <h6 style="color: black;">PatrolPeakPlanner</h6>
-            <p>  <br> July 2024</p>
+        <br>
+        <div>Peter@PatrolPeakPlanner.com</div>
+        <div> &copy; 2024-2025 PatrolPeakPlanner LLC <br>
+            All Rights Reserved.</div>
+        <br>
         </div>
     </div>
 
