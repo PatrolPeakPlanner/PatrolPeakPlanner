@@ -7,7 +7,7 @@ const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || "https://patrolpeakplanner.github.io/`PatrolPeakPlanner`";
 const JWT_SECRET = process.env.JWT_SECRET;
 
 // ===== MongoDB Connection =====
@@ -36,7 +36,7 @@ const User = mongoose.model('User', userSchema);
 const Item = mongoose.model('Item', itemSchema);
 
 app.use(cors({
-    origin: 'http://localhost:3000', // Adjust this for your frontend domain
+    origin: "https://patrolpeakplanner.github.io/PatrolPeakPlanner", // Adjust this for your frontend domain
     credentials: true
 }));
 app.use(cookieParser());
@@ -53,6 +53,14 @@ function authenticateToken(req, res, next) {
         next();
     });
 }
+
+if (process.env.NODE_ENV === 'production') {
+    console.log('Running in production mode');
+    // Enable HTTPS redirect, disable verbose logs, etc.
+} else {
+    console.log('Running in development mode');
+}
+
 
 // ===== User Routes =====
 
@@ -163,5 +171,5 @@ app.delete('/items/:id', authenticateToken, async (req, res) => {
 
 // ===== Start Server =====
 app.listen(PORT, () => {
-    console.log(`Server running at http://localhost:${PORT}`);
+    console.log(`Server running on port ${PORT}`);
 });

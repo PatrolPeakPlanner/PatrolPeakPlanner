@@ -49,6 +49,27 @@
 <input type="email" id="forgotEmail" placeholder="Email">
 <button onclick="sendResetLink()">Send Reset Link</button>
 
+<h2>Login</h2>
+<input type="email" id="loginEmail" placeholder="Email">
+<input type="password" id="loginPassword" placeholder="Password">
+<button onclick="login()">Login</button>
+<!-- Add this to test protected route -->
+<button onclick="getUsers()">Get Users (Protected)</button>
+
+
+
+<h1>User Management</h1>
+
+<h2>Add New User</h2>
+<input type="text" id="userName" placeholder="Name">
+<input type="email" id="userEmail" placeholder="Email">
+<button onclick="addUser()">Add User</button>
+
+<h2>Users List</h2>
+<ul id="usersList"></ul>
+
+
+
 <script>
     async function sendResetLink() {
         const email = document.getElementById('forgotEmail').value;
@@ -60,12 +81,8 @@
         const data = await res.json();
         alert(JSON.stringify(data));
     }
-</script>
 
-
-
-<script>
-    const apiUrl = 'http://localhost:3000';
+    const apiUrl = 'https://patrolpeakplanner.github.io/PatrolPeakPlanner';
 
     async function signUp() {
         const name = document.getElementById('signupName').value;
@@ -103,15 +120,7 @@
         const data = await res.json();
         alert(JSON.stringify(data));
     }
-</script>
 
-
-<h2>Login</h2>
-<input type="email" id="loginEmail" placeholder="Email">
-<input type="password" id="loginPassword" placeholder="Password">
-<button onclick="login()">Login</button>
-
-<script>
     let token = '';
 
     async function login() {
@@ -138,25 +147,8 @@
         const data = await res.json();
         alert(JSON.stringify(data));
     }
-</script>
 
-<!-- Add this to test protected route -->
-<button onclick="getUsers()">Get Users (Protected)</button>
-
-
-
-    <h1>User Management</h1>
-
-    <h2>Add New User</h2>
-    <input type="text" id="userName" placeholder="Name">
-    <input type="email" id="userEmail" placeholder="Email">
-    <button onclick="addUser()">Add User</button>
-
-    <h2>Users List</h2>
-    <ul id="usersList"></ul>
-
-    <script>
-        // const apiUrl = 'http://localhost:3000/users';
+       
 
         // Fetch and display all users
         async function fetchUsers() {
