@@ -183,7 +183,7 @@
 
 
     const apiUrl = 'http://localhost:3000';
-    let token = localStorage.getItem('jwtToken') || '';
+    let token = httpOnly.getItem('jwtToken') || '';
 
     async function signUp() {
       const name = document.getElementById('signupName').value;
@@ -214,7 +214,7 @@
       if (data.token) {
         // alert(JSON.stringify("Login Successful"));
         token = data.token;
-        localStorage.setItem('jwtToken', token);
+        httpOnly.setItem('jwtToken', token);
         fetchChecklist();
       } else {
         alert(JSON.stringify(data));
@@ -255,7 +255,7 @@
 
     function logout() {
       token = '';
-      localStorage.removeItem('jwtToken');
+      httpOnly.removeItem('jwtToken');
       document.getElementById('checklist').innerHTML = '';
     }
 
