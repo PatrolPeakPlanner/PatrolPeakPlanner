@@ -7,7 +7,7 @@ const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
 
 const app = express();
-const PORT = process.env.PORT || "https://patrolpeakplanner.github.io/PatrolPeakPlanner";
+const PORT = process.env.PORT || 3000;
 const JWT_SECRET = process.env.JWT_SECRET;
 
 // ===== MongoDB Connection =====
@@ -36,7 +36,7 @@ const User = mongoose.model('User', userSchema);
 const Item = mongoose.model('Item', itemSchema);
 
 app.use(cors({
-    origin: "https://patrolpeakplanner.github.io/PatrolPeakPlanner", // Adjust this for your frontend domain
+    origin: 'https://patrolpeakplanner.github.io/PatrolPeakPlanner', // Adjust this for your frontend domain
     credentials: true
 }));
 app.use(cookieParser());
