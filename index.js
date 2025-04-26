@@ -39,7 +39,7 @@ const User = mongoose.model('User', userSchema);
 const Item = mongoose.model('Item', itemSchema);
 
 app.use(cors({
-    origin: 'https://patrolpeakplanner.github.io/PatrolPeakPlanner', // Adjust this for your frontend domain
+    origin: 'https://patrolpeakplanner-2.onrender.com', // Adjust this for your frontend domain
     credentials: true
 }));
 
