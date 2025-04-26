@@ -15,6 +15,9 @@ mongoose.connect(process.env.MONGO_URI)
     .then(() => console.log('Connected to MongoDB'))
     .catch(err => console.error('MongoDB connection error:', err));
 
+app.use(cookieParser());
+app.use(express.json());
+
 const userSchema = new mongoose.Schema({
     name: String,
     email: { type: String, unique: true },
@@ -39,8 +42,7 @@ app.use(cors({
     origin: 'https://patrolpeakplanner.github.io/PatrolPeakPlanner', // Adjust this for your frontend domain
     credentials: true
 }));
-app.use(cookieParser());
-app.use(express.json());
+
 
 // ===== JWT Auth Middleware =====
 function authenticateToken(req, res, next) {
