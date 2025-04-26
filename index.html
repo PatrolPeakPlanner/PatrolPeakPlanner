@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>User Auth & Checklist App</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 40px; }
+    body { font-family: Arial, sans-serif; margin: 0; }
     input, button { margin: 5px; padding: 5px; }
     h2 { margin-top: 30px; }
     ul { list-style-type: none; padding: 0; }
@@ -32,60 +32,60 @@
                         PATROLPEAKPLANNER </h3>
             </a>
             <a href="https://patrolpeakplanner.github.io/PatrolPeakPlanner/home.html"><button
-                    style="font-size: 12px;">LIFEGAURD</button>
+                    style=" text-decoration: none; border-radius: 20px; font-size: 12px;">LIFEGAURD</button>
             </a>
-            <a href="https://patrolpeakplanner.github.io/PatrolPeakPlanner/index.html"><button
-                    style="font-size: 12px;">SKI PATROL</button>
+            <a href="https://patrolpeakplanner.github.io/PatrolPeakPlanner/indexpage.html"><button
+                    style=" text-decoration: none; border-radius: 20px; font-size: 12px;">SKI PATROL</button>
             </a>
             <!-- <a href="/Users/ptk726/Desktop/dev/PatrolPeakPlanner/index.html" ><button style="font-size: 12px;">LOGIN
                 </button> -->
             </a>
-            <a href="https://patrolpeakplanner.github.io/PatrolPeakPlanner/index.html"><button onclick="ShowSignUp()" style="font-size: 12px;">SIGNUP & LOGIN
+            <a href="https://patrolpeakplanner.github.io/PatrolPeakPlanner/index.html"><button onclick="ShowSignUp()" style=" text-decoration: none; border-radius: 20px; font-size: 12px;">SIGNUP & LOGIN
                 </button>
             </a>
 
         </div>
 
-        <br>
+        <br><br>
     </div>
 </div>
 <!-- end of top nav -->
  <div
-        style="background-image: url('https://github.com/PatrolPeakPlanner/PatrolPeakPlanner/blob/main/ImagePool.jpg?raw=true'); height: auto; background-repeat: no-repeat; background-size: cover; text-align: left; padding: 0 50px; font-size: 20px; font-family: arial; color: white; text-shadow: 0px 0px 3px black">
+        style="background-image: url('https://github.com/PatrolPeakPlanner/PatrolPeakPlanner/blob/main/ImagePool.jpg?raw=true'); height: 2000px; background-repeat: no-repeat; background-size: cover; text-align: left; padding: 0 50px; font-size: 30px; font-family: arial; color: white; text-shadow: 0px 0px 3px black">
         <br>
 
 
   <!-- <h1>User Authentication & Checklist App</h1> -->
-<div id="SignUpID" style="display: none;" >
+<div id="SignUpID" style="display: none; font-size: 30px;" >
   <!-- Sign Up Section -->
   <h2>Sign Up</h2>
-  <input type="text" id="signupName" placeholder="Name">
-  <input type="email" id="signupEmail" placeholder="Email">
-  <input type="password" id="signupPassword" placeholder="Password"><br>
-  <input type="text" id="securityQuestion1" placeholder="Security Question 1">
-  <input type="text" id="securityAnswer1" placeholder="Answer 1"><br>
-  <input type="text" id="securityQuestion2" placeholder="Security Question 2">
-  <input type="text" id="securityAnswer2" placeholder="Answer 2"><br>
-  <button onclick="signUp()">Sign Up</button>
+  <input style="font-size: 30px;" type="text" id="signupName" placeholder="Name">
+  <input style="font-size: 30px;" type="email" id="signupEmail" placeholder="Email">
+  <input style="font-size: 30px;" type="password" id="signupPassword" placeholder="Password"><br>
+  <input style="font-size: 30px;" type="text" id="securityQuestion1" placeholder="Security Question 1">
+  <input style="font-size: 30px;" type="text" id="securityAnswer1" placeholder="Answer 1"><br>
+  <input style="font-size: 30px;" type="text" id="securityQuestion2" placeholder="Security Question 2">
+  <input style="font-size: 30px;" type="text" id="securityAnswer2" placeholder="Answer 2"><br>
+  <button style="border-radius:20px; font-size: 30px;" onclick="signUp()">Sign Up</button>
 
 
   <!-- Login Section -->
   <h2>Login</h2>
-  <input type="email" id="loginEmail" placeholder="Email">
-  <input type="password" id="loginPassword" placeholder="Password"><br>
-  <button onclick="login(); LoggedInOpenChecklist(); CloseSignUp();">Login</button>
+  <input style="font-size: 30px;" type="email" id="loginEmail" placeholder="Email">
+  <input style="font-size: 30px;" type="password" id="loginPassword" placeholder="Password"><br>
+  <button style="border-radius:20px; font-size: 30px;"onclick="login(); LoggedInOpenChecklist(); CloseSignUp();">Login</button>
 
   <!-- Forgot Password Section -->
   <h2>Forgot Password</h2>
-  <input type="email" id="forgotEmail" placeholder="Email"><br>
-  <button onclick="getSecurityQuestions()">Get Security Questions</button><br>
+  <input style="font-size: 30px;" type="email" id="forgotEmail" placeholder="Email"><br>
+  <button style="border-radius: 20px; font-size: 30px;" onclick="getSecurityQuestions()">Get Security Questions</button><br>
   <div id="securityQuestionsSection" style="display:none;">
     <p id="securityQ1"></p>
-    <input type="text" id="answer1" placeholder="Answer 1"><br>
+    <input style="font-size: 30px;" type="text" id="answer1" placeholder="Answer 1"><br>
     <p id="securityQ2"></p>
-    <input type="text" id="answer2" placeholder="Answer 2"><br>
-    <input type="password" id="newPassword" placeholder="New Password"><br>
-    <button onclick="verifySecurityAnswers()">Reset Password</button>
+    <input style="font-size: 30px;" type="text" id="answer2" placeholder="Answer 2"><br>
+    <input style="font-size: 30px;" type="password" id="newPassword" placeholder="New Password"><br>
+    <button style="border-radius:20px; font-size: 30px;" onclick="verifySecurityAnswers()">Reset Password</button>
   </div>
 
 </div>
@@ -104,19 +104,21 @@
 
   <!-- Logout -->
   <h2>Logout</h2>
-  <button onclick="logout(); LoggedOutCloseChecklist();">Logout</button>
+  <button style="border-radius: 20px; font-size: 30px; padding: 0 20px;" onclick="logout(); LoggedOutCloseChecklist();">Logout</button><br>
 
 </div>
 <div id="SignUpCenterButtonID" style="display: Block; text-align: center; height: 500px;">
     <br><br><br><br><br><br><br><br>
-    <a><button onclick="ShowSignUp()" style="font-size: 25px;">SIGNUP & LOGIN
+    <a><button onclick="ShowSignUp()" style=" border-radius: 40px; padding: 0 30px; font-size: 40px;">SIGNUP & LOGIN
         </button>
     </a>
 </div>
 
+<!-- <div style="background-color: lightgreen ;"></div>
+<div style="background-color: lightgray;"></div>
+<div style="background-color: lightslategray ;"></div> -->
 
-
-<br><br>
+<br><br><br><br>
 </div>
 <!-- end of main photo -->
 <footer>
@@ -210,7 +212,7 @@
       });
       const data = await res.json();
       if (data.token) {
-        alert(JSON.stringify("Login Successful"));
+        // alert(JSON.stringify("Login Successful"));
         token = data.token;
         localStorage.setItem('jwtToken', token);
         fetchChecklist();
