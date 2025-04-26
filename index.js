@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const cors = require('cors');
 const jwt = require('jsonwebtoken');
+const cookieParser = require('cookie-parser');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -34,12 +35,16 @@ const itemSchema = new mongoose.Schema({
 const User = mongoose.model('User', userSchema);
 const Item = mongoose.model('Item', itemSchema);
 
-app.use(cors());
+app.use(cors({
+    origin: 'http://localhost:3000', // Adjust this for your frontend domain
+    credentials: true
+}));
+app.use(cookieParser());
 app.use(express.json());
 
 // ===== JWT Auth Middleware =====
 function authenticateToken(req, res, next) {
-    const token = req.headers['authorization']?.split(' ')[1];
+    const token = req.cookies.token;
     if (!token) return res.sendStatus(401);
 
     jwt.verify(token, JWT_SECRET, (err, user) => {
@@ -51,6 +56,7 @@ function authenticateToken(req, res, next) {
 
 // ===== User Routes =====
 
+// Sign Up
 app.post('/signup', async (req, res) => {
     const { name, email, password, securityQuestion1, securityAnswer1, securityQuestion2, securityAnswer2 } = req.body;
     const hashedPassword = await bcrypt.hash(password, 10);
@@ -62,6 +68,7 @@ app.post('/signup', async (req, res) => {
     }
 });
 
+// Login - Set JWT in Secure Cookie
 app.post('/login', async (req, res) => {
     const { email, password } = req.body;
     const user = await User.findOne({ email });
@@ -71,10 +78,28 @@ app.post('/login', async (req, res) => {
     if (!match) return res.status(401).json({ error: "Invalid password" });
 
     const token = jwt.sign({ id: user._id, email: user.email }, JWT_SECRET, { expiresIn: '1h' });
-    res.json({ message: "Login successful", token });
-      
+
+    res.cookie('token', token, {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === 'production', // Use HTTPS in production
+        sameSite: 'Lax',
+        maxAge: 3600000 // 1 hour
+    });
+
+    res.json({ message: "Login successful" });
 });
 
+// Logout - Clear Cookie
+app.post('/logout', (req, res) => {
+    res.clearCookie('token', {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === 'production',
+        sameSite: 'Lax'
+    });
+    res.json({ message: 'Logged out' });
+});
+
+// Forgot Password - Get Security Questions
 app.post('/forgot-password', async (req, res) => {
     const { email } = req.body;
     const user = await User.findOne({ email });
@@ -87,6 +112,7 @@ app.post('/forgot-password', async (req, res) => {
     });
 });
 
+// Verify Security Answers and Reset Password
 app.post('/verify-security-answers', async (req, res) => {
     const { email, answer1, answer2, newPassword } = req.body;
     const user = await User.findOne({ email });
@@ -103,17 +129,20 @@ app.post('/verify-security-answers', async (req, res) => {
 
 // ===== Checklist CRUD Routes =====
 
+// Get All Items for Logged-in User
 app.get('/items', authenticateToken, async (req, res) => {
     const items = await Item.find({ userId: req.user.id });
     res.json(items);
 });
 
+// Create Item for Logged-in User
 app.post('/items', authenticateToken, async (req, res) => {
     const { name } = req.body;
     const item = await Item.create({ name, userId: req.user.id });
     res.json(item);
 });
 
+// Update Item
 app.put('/items/:id', authenticateToken, async (req, res) => {
     const { name, completed, initials } = req.body;
     const item = await Item.findOneAndUpdate(
@@ -125,14 +154,14 @@ app.put('/items/:id', authenticateToken, async (req, res) => {
     res.json(item);
 });
 
+// Delete Item
 app.delete('/items/:id', authenticateToken, async (req, res) => {
     const result = await Item.deleteOne({ _id: req.params.id, userId: req.user.id });
     if (result.deletedCount === 0) return res.status(404).json({ error: "Item not found" });
     res.json({ message: "Item deleted" });
 });
 
+// ===== Start Server =====
 app.listen(PORT, () => {
     console.log(`Server running at http://localhost:${PORT}`);
 });
-
-

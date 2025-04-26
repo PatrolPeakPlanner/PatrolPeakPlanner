@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -141,214 +141,198 @@
 <!-- //////// -->
 
   <script>
+    function ShowSignUp() {
+        document.getElementById("SignUpID").style.display = "block";
+        document.getElementById("SignUpCenterButtonID").style.display = "none";
 
 
+    }
+    function CloseSignUp() {
+        document.getElementById("SignUpID").style.display = "none";
 
-    // function ShowEditDelete() {
-        // document.getElementsByClassName("ShowEditDeleteID").style.display = "block";
-    //     document.getElementById("SaveEditDeleteID").style.display = "none";
-        //  }
-    // function SaveEditDelete() {
-    //     document.getElementById("ShowEditDeleteID").style.display = "none";
-    //     document.getElementById("SaveEditDeleteID").style.display = "Block";
+    }
+    function LoggedOutCloseChecklist() {
+        document.getElementById("checklistID").style.display = "none";
+        document.getElementById("SignUpCenterButtonID").style.textAlign = "center";
+        document.getElementById("SignUpCenterButtonID").style.fontSize = "30px";
+        document.getElementById("SignUpCenterButtonID").style.display = "block";
 
-    // }
-    //  function ShowEditDelete() {
-    //         document.getElementById("ShowEditDeleteID").style.display = "block";
-    //     }
-        function ShowSignUp() {
-            document.getElementById("SignUpID").style.display = "block";
-            document.getElementById("SignUpCenterButtonID").style.display = "none";
-            
+    }
+    function LoggedInOpenChecklist() {
+        document.getElementById("checklistID").style.display = "block";
 
-        }
-        function CloseSignUp() {
-                document.getElementById("SignUpID").style.display = "none";
 
-            }
-        function LoggedOutCloseChecklist() {
-                document.getElementById("checklistID").style.display = "none";
-                 document.getElementById("SignUpCenterButtonID").style.textAlign = "center";
-            document.getElementById("SignUpCenterButtonID").style.fontSize = "30px";
-                document.getElementById("SignUpCenterButtonID").style.display = "block";
-
-            }
-             function LoggedInOpenChecklist() {
-                    document.getElementById("checklistID").style.display = "block";
-                   
-
-                }
-        
+    }
 
 
 
     const apiUrl = 'http://localhost:3000';
-    let token = httpOnly.getItem('jwtToken') || '';
 
     async function signUp() {
-      const name = document.getElementById('signupName').value;
-      const email = document.getElementById('signupEmail').value;
-      const password = document.getElementById('signupPassword').value;
-      const securityQuestion1 = document.getElementById('securityQuestion1').value;
-      const securityAnswer1 = document.getElementById('securityAnswer1').value;
-      const securityQuestion2 = document.getElementById('securityQuestion2').value;
-      const securityAnswer2 = document.getElementById('securityAnswer2').value;
+        const name = document.getElementById('signupName').value;
+        const email = document.getElementById('signupEmail').value;
+        const password = document.getElementById('signupPassword').value;
+        const securityQuestion1 = document.getElementById('securityQuestion1').value;
+        const securityAnswer1 = document.getElementById('securityAnswer1').value;
+        const securityQuestion2 = document.getElementById('securityQuestion2').value;
+        const securityAnswer2 = document.getElementById('securityAnswer2').value;
 
-      const res = await fetch(`${apiUrl}/signup`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, password, securityQuestion1, securityAnswer1, securityQuestion2, securityAnswer2 })
-      });
-      alert(JSON.stringify(await res.json()));
+        const res = await fetch(`${apiUrl}/signup`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, email, password, securityQuestion1, securityAnswer1, securityQuestion2, securityAnswer2 })
+        });
+        alert(JSON.stringify(await res.json()));
     }
 
     async function login() {
-      const email = document.getElementById('loginEmail').value;
-      const password = document.getElementById('loginPassword').value;
-      const res = await fetch(`${apiUrl}/login`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password })
-      });
-      const data = await res.json();
-      if (data.token) {
-        // alert(JSON.stringify("Login Successful"));
-        token = data.token;
-        httpOnly.setItem('jwtToken', token);
-        fetchChecklist();
-      } else {
-        alert(JSON.stringify(data));
-      }
+        const email = document.getElementById('loginEmail').value;
+        const password = document.getElementById('loginPassword').value;
+        const res = await fetch(`${apiUrl}/login`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, password }),
+            credentials: 'include'
+        });
+        const data = await res.json();
+        alert(data.message || data.error);
+        if (res.ok) {
+            fetchChecklist();
+        }
+    }
+
+    async function logout() {
+        await fetch(`${apiUrl}/logout`, {
+            method: 'POST',
+            credentials: 'include'
+        });
+        alert('Logged out');
+        document.getElementById('checklist').innerHTML = '';
     }
 
     async function getSecurityQuestions() {
-      const email = document.getElementById('forgotEmail').value;
-      const res = await fetch(`${apiUrl}/forgot-password`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email })
-      });
-      const data = await res.json();
-      if (data.securityQuestion1 && data.securityQuestion2) {
-        document.getElementById('securityQuestionsSection').style.display = 'block';
-        document.getElementById('securityQ1').innerText = data.securityQuestion1;
-        document.getElementById('securityQ2').innerText = data.securityQuestion2;
-      } else {
-        alert('Email not found.');
-      }
+        const email = document.getElementById('forgotEmail').value;
+        const res = await fetch(`${apiUrl}/forgot-password`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email })
+        });
+        const data = await res.json();
+        if (data.securityQuestion1 && data.securityQuestion2) {
+            document.getElementById('securityQuestionsSection').style.display = 'block';
+            document.getElementById('securityQ1').innerText = data.securityQuestion1;
+            document.getElementById('securityQ2').innerText = data.securityQuestion2;
+        } else {
+            alert('Email not found.');
+        }
     }
 
     async function verifySecurityAnswers() {
-      const email = document.getElementById('forgotEmail').value;
-      const answer1 = document.getElementById('answer1').value;
-      const answer2 = document.getElementById('answer2').value;
-      const newPassword = document.getElementById('newPassword').value;
+        const email = document.getElementById('forgotEmail').value;
+        const answer1 = document.getElementById('answer1').value;
+        const answer2 = document.getElementById('answer2').value;
+        const newPassword = document.getElementById('newPassword').value;
 
-      const res = await fetch(`${apiUrl}/verify-security-answers`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, answer1, answer2, newPassword })
-      });
-      const data = await res.json();
-      alert(data.message || data.error);
+        const res = await fetch(`${apiUrl}/verify-security-answers`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, answer1, answer2, newPassword })
+        });
+        const data = await res.json();
+        alert(data.message || data.error);
     }
 
-    function logout() {
-      token = '';
-      httpOnly.removeItem('jwtToken');
-      document.getElementById('checklist').innerHTML = '';
-    }
-
-    // Checklist CRUD Functions
     async function fetchChecklist() {
-      const res = await fetch(`${apiUrl}/items`, {
-        headers: { 'Authorization': 'Bearer ' + token }
-      });
-      const items = await res.json();
-      const list = document.getElementById('checklist');
-      list.innerHTML = '';
-      items.forEach(item => {
-        const li = document.createElement('li');
-        li.className = 'checklist-item';
-        li.innerHTML = `
-          <input type="checkbox" ${item.completed ? 'checked' : ''} onchange="updateItem('${item._id}', '${item.name}', this.checked, this.parentNode.querySelector('.initials-input').value)">
-          <input type="text" class="initials-input" value="${item.initials || ''}" placeholder="Init" onblur="updateItem('${item._id}', '${item.name}', this.parentNode.querySelector('input[type=checkbox]').checked, this.value)">
-          <button onclick="deleteItem('${item._id}')">Delete</button>
-          <span>${item.name}</span> 
-        `;
-        list.appendChild(li);
-      });
+        const res = await fetch(`${apiUrl}/items`, {
+            credentials: 'include'
+        });
+        const items = await res.json();
+        const list = document.getElementById('checklist');
+        list.innerHTML = '';
+        items.forEach(item => {
+            const li = document.createElement('li');
+            li.className = 'checklist-item';
+
+            const checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.checked = item.completed;
+            checkbox.addEventListener('change', () => {
+                updateItem(item._id, item.name, checkbox.checked, initialsInput.value);
+            });
+
+            const initialsInput = document.createElement('input');
+            initialsInput.type = 'text';
+            initialsInput.className = 'initials-input';
+            initialsInput.value = item.initials || '';
+            initialsInput.placeholder = 'Init';
+            initialsInput.addEventListener('blur', () => {
+                updateItem(item._id, item.name, checkbox.checked, initialsInput.value);
+            });
+
+            const editButton = document.createElement('button');
+            editButton.innerText = 'Edit';
+            editButton.addEventListener('click', () => {
+                editItemPrompt(item._id, item.name, item.completed, item.initials || '');
+            });
+
+            const deleteButton = document.createElement('button');
+            deleteButton.innerText = 'Delete';
+            deleteButton.addEventListener('click', () => {
+                deleteItem(item._id);
+            });
+
+            const nameSpan = document.createElement('span');
+            nameSpan.innerText = item.name;
+
+            li.appendChild(checkbox);
+            li.appendChild(initialsInput);
+            li.appendChild(editButton);
+            li.appendChild(deleteButton);
+            li.appendChild(nameSpan);
+
+            list.appendChild(li);
+        });
     }
-
-    // Updated fetchChecklist to include Edit Button
-        async function fetchChecklist() {
-            const res = await fetch(`${apiUrl}/items`, {
-                headers: { 'Authorization': 'Bearer ' + token }
-            });
-            const items = await res.json();
-            const list = document.getElementById('checklist');
-            list.innerHTML = '';
-            items.forEach(item => {
-                const li = document.createElement('li');
-                li.className = 'checklist-item';
-                li.innerHTML = `
-        <input type="checkbox" ${item.completed ? 'checked' : ''} onchange="updateItem('${item._id}', '${item.name}', this.checked, this.parentNode.querySelector('.initials-input').value)">
-        
-        <input type="text" class="initials-input" value="${item.initials || ''}" placeholder="Init" onblur="updateItem('${item._id}', '${item.name}', this.parentNode.querySelector('input[type=checkbox]').checked, this.value)">
-        <button onclick="editItemPrompt('${item._id}', '${item.name}', ${item.completed}, '${item.initials || ''}')">Edit</button>
-        <button onclick="deleteItem('${item._id}')">Delete</button> <span>${item.name}</span> `;
-                list.appendChild(li);
-            });
-        }
-
-        // Add editItemPrompt function
-        async function editItemPrompt(id, currentName, completed, initials) {
-            const newName = prompt('Edit item name:', currentName);
-            if (newName !== null && newName.trim() !== '') {
-                await updateItem(id, newName, completed, initials);
-            }
-        }
-
-          async function updateItem(id, name, completed, initials) {
-                await fetch(`${apiUrl}/items/${id}`, {
-                    method: 'PUT',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': 'Bearer ' + token
-                    },
-                    body: JSON.stringify({ name, completed, initials })
-                });
-                fetchChecklist();
-            }
-
 
     async function createItem() {
-      const name = document.getElementById('newItem').value;
-      await fetch(`${apiUrl}/items`, {
-        method: 'POST',
-        headers: { 
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer ' + token
-        },
-        body: JSON.stringify({ name })
-      });
-      document.getElementById('newItem').value = '';
-      fetchChecklist();
+        const name = document.getElementById('newItem').value;
+        await fetch(`${apiUrl}/items`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name }),
+            credentials: 'include'
+        });
+        document.getElementById('newItem').value = '';
+        fetchChecklist();
     }
 
-  
+    async function updateItem(id, name, completed, initials) {
+        await fetch(`${apiUrl}/items/${id}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, completed, initials }),
+            credentials: 'include'
+        });
+        fetchChecklist();
+    }
 
     async function deleteItem(id) {
-      await fetch(`${apiUrl}/items/${id}`, {
-        method: 'DELETE',
-        headers: { 'Authorization': 'Bearer ' + token }
-      });
-      fetchChecklist();
+        await fetch(`${apiUrl}/items/${id}`, {
+            method: 'DELETE',
+            credentials: 'include'
+        });
+        fetchChecklist();
     }
 
-    if (token) {
-      fetchChecklist();
+    async function editItemPrompt(id, currentName, completed, initials) {
+        const newName = prompt('Edit item name:', currentName);
+        if (newName !== null && newName.trim() !== '') {
+            await updateItem(id, newName, completed, initials);
+        }
     }
-  </script>
+
+    // Auto-fetch checklist on load
+    fetchChecklist();
+</script>
 </body>
 </html>
