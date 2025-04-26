@@ -7,7 +7,7 @@ const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
 
 const app = express();
-const PORT = process.env.PORT || "https://patrolpeakplanner.github.io/`PatrolPeakPlanner`";
+const PORT = process.env.PORT || "https://patrolpeakplanner.github.io/PatrolPeakPlanner";
 const JWT_SECRET = process.env.JWT_SECRET;
 
 // ===== MongoDB Connection =====
