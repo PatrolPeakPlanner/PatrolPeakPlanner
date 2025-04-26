@@ -89,14 +89,15 @@ app.post('/login', async (req, res) => {
 
     const token = jwt.sign({ id: user._id, email: user.email }, JWT_SECRET, { expiresIn: '1h' });
 
-    res.cookie('token', token, {
-        httpOnly: true,
-        secure: process.env.NODE_ENV === 'production', // Use HTTPS in production
-        sameSite: 'Lax',
-        maxAge: 3600000 // 1 hour
-    });
+    // res.cookie('token', token, {
+    //     httpOnly: true,
+    //     secure: process.env.NODE_ENV === 'production', // Use HTTPS in production
+    //     sameSite: 'Lax',
+    //     maxAge: 3600000 // 1 hour
+    // });
 
     res.json({ message: "Login successful" });
+    
 });
 
 // Logout - Clear Cookie
