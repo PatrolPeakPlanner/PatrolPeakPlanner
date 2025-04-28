@@ -422,6 +422,34 @@
 <!-- </nav> -->
 <!-- end of side nav -->
 
+<!-- Cookie Popup -->
+<div id="cookie-popup"
+    style="position: fixed; bottom: 20px; left: 20px; right: 20px; background: #fff; border: 1px solid #ccc; padding: 20px; z-index: 9999; display: block; font-family: Arial, sans-serif; font-size: 14px;">
+    <p>
+        We use cookies to improve your experience on our site. By continuing, you agree to our use of cookies.
+        Read our <a style="font-size: 14px;" href="https://patrolpeakplanner.github.io/PatrolPeakPlanner/privacy-policy.html" target="_blank" style="color: blue; text-decoration: underline;">Privacy
+            Policy</a> for more information.
+    </p>
+    <button onclick="acceptCookies()"
+        style="padding: 10px 20px; background-color: #4CAF50; color: white; border: none; cursor: pointer;">
+        Accept Cookies
+    </button>
+</div>
+
+<script>
+    // Show popup if cookies not yet accepted
+    // if (!localStorage.getItem('cookiesAccepted')) {
+    //     document.getElementById('cookie-popup').style.display = 'block';
+    // }
+
+    // Function to accept cookies
+    function acceptCookies() {
+        // localStorage.setItem('cookiesAccepted', 'true');
+        document.getElementById('cookie-popup').style.display = 'none';
+    }
+</script>
+
+
 <footer>
     <!-- <div class="footerdivparent"> -->
     <div class="footerDiv" style="background-color: lightblue; text-align: center;">
