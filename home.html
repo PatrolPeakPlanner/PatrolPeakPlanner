@@ -1,612 +1,87 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" ng-app>
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>PatrolPeakPlanner</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.min.js" charset="utf-8"></script>
+
+    <!-- JS Libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"
         integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="public/js/app.js" charset="utf-8"></script>
     <script src="public/js/app1.js" charset="utf-8"></script>
-    <!-- <script src="./../server1.js" charset="utf-8"></script> -->
 
-    <base href="/" target="_blank">
-
- 
- 
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
         integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
- 
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
-    <link rel="stylesheet" href="/css/main.css">
-
-
-<link href="/Users/ptk726/Desktop/dev/PatrolPeakPlanner/css/main.css" rel="stylesheet" type="text/css">
-
+    <!-- <link rel="stylesheet" href="/css/main.css"> -->
 </head>
 
-<body style="max-width: 600px; margin: 0 auto;">
+<body style="max-width: auto; margin: 0 auto;">
 
-    <!--//////  Partials nav ////-->
-    <div style="max-width: 600px; margin: 0 auto;" class="is-visible" ng-include="'partials/nav.html'"></div>
-    <!--////// end of partials ////-->
+    <!-- Navigation Partial -->
+    <div ng-include="'partials/nav.html'" class="is-visible"></div>
 
-    <!-- ///////////////// -->
-    <div class="divMaxWidth">
-        <div class="mainPicture">
-            <div class="mainTopnumber">
-
-                <!-- top nav bar -->
-                <div style="z-index: 10;" class="topnav">
-
-                    <div style="background-color: darkgrey; z-index: 10;" class="topnav1">
-                        <a class="aTagTopNavDivLogo" style="font-size: 22px; " href="https://patrolpeakplanner.github.io/PatrolPeakPlanner/home.html">
-                            <div style="z-index: 10; color: black; margin-left:20px;margin-top: 0px;padding-top: 25px;"
-                                class="mainLogo1">
-                        
-                            <h3 style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-size: 36px; color: white; text-shadow: 0px 0px 10px black;">
-                                PATROLPEAKPLANNER </h3>
-                        </a>
-<a href="https://patrolpeakplanner.github.io/PatrolPeakPlanner/home.html"><button
-        style="border-radius: 20px; font-size: 12px;">LIFEGAURD</button>
-</a>
-<a href="https://patrolpeakplanner.github.io/PatrolPeakPlanner/indexpage.html"><button style="border-radius:20px; font-size: 12px;">SKI PATROL</button>
-</a>
-</a>
-<a href="https://patrolpeakplanner.github.io/PatrolPeakPlanner/index.html"><button onclick="ShowSignUp()"
-        style="border-radius: 20px; font-size: 12px;">SIGNUP & LOGIN
-    </button>
-</a>
-
-                    </div>
-                        
-                        <br>
-                </div>
-                </div>
-                <!-- end of top nav -->
-<!-- start of first top image  -->
-
-<div style="text-align: left;">
-                <!-- <h5> For Lifeguard Productivity</h5> -->
-
-             
-</div>
-
-<!-- Side Nav HTML -->
-<!-- <div id="mySidenav" class="sidenav">
-    <a class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="#">Link 1</a>
-    <a href="#">Link 2</a>
-    <a href="#">Link 3</a>
-</div> -->
-
-<!-- start of login sidenav -->
-<!-- Login Section -->
-<!-- <div id="mySidenavLogin" class="sidenav" style="font-size: 12px; display: block; width: 0px; height: 100%; background-color: white; z-index: index 1; text-align: left; padding-left: 30px;">
-    <a class="closebtn" onclick="closeNav()">&times;</a>
-    <br><br>
-    <h2>Login</h2>
-    <input type="email" id="loginEmail" placeholder="Email"><br>
-    <input type="password" id="loginPassword" placeholder="Password"><br>
-    <button onclick="login()">Login</button> -->
-
-    <!-- Forgot Password Section -->
-    <!-- <h2>Forgot Password</h2>
-    <input type="email" id="forgotEmail" placeholder="Email"><br>
-    <button onclick="getSecurityQuestions()">Get Security Questions</button><br>
-    <div id="securityQuestionsSection" style="display:none;">
-        <p id="securityQ1"></p>
-        <input type="text" id="answer1" placeholder="Answer 1"><br>
-        <p id="securityQ2"></p>
-        <input type="text" id="answer2" placeholder="Answer 2"><br>
-        <input type="password" id="newPassword" placeholder="New Password"><br>
-        <button onclick="verifySecurityAnswers()">Reset Password</button>
-    </div>
-</div> -->
-<!-- end of login side nav -->
-
-
-<!-- start of sign up side nav -->
-    <!-- Sign Up Section -->
-<!-- <div id="mySidenavSignUp" class="sidenav"
-    style="font-size: 12px; display: block; width: 0px; height: 100%; background-color: white; z-index: index 1; text-align: left; padding-left: 30px;">
-    <a class="closebtn" onclick="closeSignUp()">&times;</a>
-    <br><br>
-
-    <h2>Sign Up</h2>
-    <input type="text" id="signupName" placeholder="Name"><br>
-    <input type="email" id="signupEmail" placeholder="Email"><br>
-    <input type="password" id="signupPassword" placeholder="Create Password"><br><br>
-    <input type="text" id="securityQuestion1" placeholder="Security Question 1"><br>
-    <input type="text" id="securityAnswer1" placeholder="Answer 1"><br><br>
-    <input type="text" id="securityQuestion2" placeholder="Security Question 2"><br>
-    <input type="text" id="securityAnswer2" placeholder="Answer 2"><br><br>
-    <button onclick="signUp()">Sign Up</button>
-
-</div> -->
-
-
-
-
-<!-- Add this JavaScript to your <script> -->
-<!-- <script>
-    function openLogin() {
-        document.getElementById("mySidenavLogin").style.width = "350px";
-    }
-
-    function closeNav() {
-        document.getElementById("mySidenavLogin").style.width = "0";
-
-    }
-    function openSignUp() {
-        document.getElementById("mySidenavSignUp").style.width = "350px";
-    }
-    function closeSignUp() {
-            document.getElementById("mySidenavSignUp").style.width = "0";
-
-        }
-    
-</script> -->
-
-
-
-
-
-
-
-
-                <!-- start of middle picture background -->
-                <div
-                    style="background-image: url('https://github.com/PatrolPeakPlanner/PatrolPeakPlanner/blob/main/ImagePool.jpg?raw=true'); height: 600px; background-repeat: no-repeat; background-size: cover; text-align: left; padding: 0 50px; font-size: 36px; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; color: white; text-shadow: 0px 0px 50px black">
-<br><br><br>
-                        <h1 style="font-size: 62px; font-weight: 800;">Lifegaurd Productivity</h1>
-                    
-                        
-
-                        <a href="https://patrolpeakplanner.github.io/PatrolPeakPlanner/LifegaurdChecklist.html">
-                            <h3 style=" color: black; margin: 0px 0px; text-align:left;">
-                                <button style="border-radius:20px; text-align:left ; padding: 5px 10px; font-size: 18px;" >VIEW AND SUBSCRIBE </button>
-                        </a>
-                      
-    
-        <br><br><br>
-
-
-
-
-
-                    <br><br>
-                    <!-- start login -->
-                    <div class="modal-text-boxLogin"
-                        style=" display: none; text-align: center; background-color: white; padding: 10px 10px; margin: 0px 25% ; border-radius: 10px; font-size: 12px;">
-                        <div id="openLoginModal">
-                            <h4 class="modalh4" style="margin: 0 0; padding: 5px 30px;">Login PatrolPeakPlanner
-                            </h4>
-
-                            <!-- <div class="incorrectLogin center">
-                        <% if (message) { %>
-                        <%= message %>
-                        <% } %>
-                        </div> -->
-
-                            <form action="/user/login" id="modalFormLogin" method="post">
-                                <div class="form-group">
-                                    <div id="incorrectPassword"></div>
-                                    <label for="username">Username:</label>
-                                    <input class="form-control" name="username" placeholder="Enter Username">
-                                </div>
-                                <div class="form-group">
-                                    <label for="pwd">Password:</label>
-                                    <input type="password" name="password" class="form-control" id="pwd"
-                                        placeholder="Enter Password">
-
-                                </div>
-                                <div class="checkbox">
-                                    <!-- <label><input type="checkbox"> Remember me</label> -->
-                                </div>
-                                <button id="loginbtn" type="submit" class="btn btn-default">Submit</button>
-                            </form>
-                            <br>
-                            <button>Forgot <br> Password </button>
-                            <br><br>
-                        </div>
-                    </div>
-
-                    <!-- end login -->
-                    <br>
-                    <br>
-                    <br><br>
-                    <br>
-                    <br><br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-
-                </div>
-                <!-- end of middle picture background -->
-
-<div style="background-color: #197BBD; padding: 10px 50px; text-align: left; color: white;">
-    <!-- <h3 style="font-weight: 400;">A Modifiable Checklist with initials</h3>
-    <h3 style="font-weight: 400;">Replace paper and pencil</h3>
-    <h3 style="font-weight: 400;">Improve Productivity</h3> -->
-    <H5 style="font-weight: 400;">A CHECKLIST WITH INITIALS</H5>
-    <H5 style="font-weight: 400;">REPLACE PAPER AND PENCIL</H5>
-    <H5 style="font-weight: 400;">IMPROVE PRODUCTIVITY </H5>
-
-</div>
-
-
-            </div>
-            <!-- end of mainTopnumber -->
-        </div>
-        <!-- end of main picture -->
-    </div>
-    <!-- end of divMaxWidth -->
-
-    <!-- <div class="footerdivparent"> -->
-   
-
-    <!-- Side Nav -Lifeguard Notification Notifications -->
-    <div id="mySidenavNotification" style="
-    height: 100%;
-    width: 0px;
-    position: fixed;
-    z-index: 4;
-    top: 0;
-    right: 0;
-    background-color: #B4CDE0;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
-    box-shadow: 2px 2px 10px #000000;">
-
-        <div style="margin: 20px 20px">
-            <div class="closeXButton" onclick="closeNotificationNav()"></div>
-            <h3>Add Lifeguard Notifications:</h3>
-
-            <form action="/action_page.html">
-                <!-- <label for="fname">Add Lifeguard Notification Location:</label><br> -->
-                <input type="text" id="fname" name="fname" value="Lifeguard Notification Location"><br>
-                <!-- <label for="lname">Reported Time:</label><br> -->
-                <input type="text" id="lname" name="lname" value="Time Reported"><br><br>
-                <input type="submit" value="Submit">
-            </form>
-
-            <p>If you click the "Submit" button, the form-data will be sent to a page called "/action_page.html".</p>
-
-            <p>=======================</p>
-            <h4> Lifeguard Notification
-                <br> Location:
-                <br> Status:
-            </h4>
-            <h4> Lifeguard Notification
-                <br> Location:
-                <br> Status:
-            </h4>
-            <h4> Lifeguard Notification
-                <br> Location:
-                <br> Status:
-            </h4>
-            <h4> Lifeguard Notification
-                <br> Location:
-                <br> Status:
-            </h4>
+    <!-- Top Navigation -->
+    <div class="topnav" style="z-index: 10; background-color: darkgrey;">
+        <a href="https://patrolpeakplanner.github.io/PatrolPeakPlanner/home.html" style="font-size: 22px;">
+            <h3 style="font-family:Impact, sans-serif; font-size: 36px; color: white; padding: 10px;text-shadow: 0 0 10px black; margin-top: 0px;">
+                PATROLPEAKPLANNER
+            </h3>
+        </a>
+        <div style="padding: 10px;">
+            <a href="https://patrolpeakplanner.github.io/PatrolPeakPlanner/home.html">
+                <button style="border-radius: 20px; font-size: 12px;">LIFEGUARD</button>
+            </a>
+            <a href="https://patrolpeakplanner.github.io/PatrolPeakPlanner/indexpage.html">
+                <button style="border-radius: 20px; font-size: 12px;">SKI PATROL</button>
+            </a>
+            <a href="https://patrolpeakplanner.github.io/PatrolPeakPlanner/index.html">
+                <button style="border-radius: 20px; font-size: 12px;">SIGNUP & LOGIN</button>
+            </a>
         </div>
     </div>
 
+    <!-- Hero Section -->
+    <div style="background-image: url('https://github.com/PatrolPeakPlanner/PatrolPeakPlanner/blob/main/ImagePool.jpg?raw=true'); 
+          height: 600px; background-repeat: no-repeat; background-size: cover; 
+          text-align: left; padding: 0 50px; font-size: 36px; 
+          font-family: Impact, sans-serif; color: white; text-shadow: 0px 0px 50px black;
+          display: flex; flex-direction: column; justify-content: center;">
+        <h1 style="font-size: 62px; font-weight: 800;">Lifeguard Productivity</h1>
+        <a href="https://patrolpeakplanner.github.io/PatrolPeakPlanner/LifegaurdChecklist.html">
+            <button style="border-radius: 20px; padding: 5px 10px; font-size: 18px;">VIEW AND SUBSCRIBE</button>
+        </a>
+    </div>
 
+    <!-- Info Section -->
+    <div style="background-color: #197BBD; padding: 10px 50px; text-align: left; color: white;">
+        <h5>A CHECKLIST WITH INITIALS</h5>
+        <h5>REPLACE PAPER AND PENCIL</h5>
+        <h5>IMPROVE PRODUCTIVITY</h5>
+    </div>
 
-
-    <!-- Start of Side Nav - Resupply Equipment -->
-    <div id="mySidenavResupplyEquipment" style="
-        height: 100%;
-        width: 0px;
-        position: fixed;
-        z-index: 4;
-        top: 0;
-        right: 0;
-        background-color: #B4CDE0;
-        overflow-x: hidden;
-        transition: 0.5s;
-        padding-top: 60px;
-        box-shadow: 2px 2px 10px #000000;">
-
-        <div style="margin: 20px 20px 20px 20px">
-
-
-            <div class="closeXButton" onclick="closeResupplyEquipmentNav()"></div>
-
-
-            <h3>Resupply Equipment Status:</h3>
-
-            <form action="/action_page.html">
-                <!-- <label for="fname">Equipment Name:</label><br> -->
-                <input type="text" id="fname" name="fname" value="Equipment Name"><br>
-                <!-- <label for="lname">Location:</label><br> -->
-                <input type="text" id="lname" name="lname" value="Location"><br><br>
-                <input type="submit" value="Submit">
-            </form>
-
-            <p>If you click the "Submit" button, the form-data will be sent to a page called "/action_page.html".</p>
-
-            <p>=======================</p>
-
-            <h3>Resupply Medical and Rescue Equipment List:</h3>
-
-            <!-- Show Equipment : get route -->
-            <div>
-
-                <div style="padding:0 8px; align-items: left;" ng-repeat="equipment in ctrl.Equipment">
-
-                    <br>
-
-                    <div style="padding:0 8px; align-items: left;">
-
-                        <h3 style="height: 20px; " id="render1"></h3>
-                        <h3 style="height: 20px; " id="render2"></h3>
-                        <h3 style="height: 20px; " id="render3"></h3>
-                        <h3 style="height: 20px; " id="render4"></h3>
-                        <h3 style="height: 20px; " id="render5"></h3>
-                        <h3 style="height: 20px; " id="render7"></h3>
-                        <br>
-                        <br>
-                        <br>
-                        <button onclick="showList();">Show List</button>
-
-                        <br><br>
-                        <div>
-
-
-                            <div ng-show="myVar">
-                                <!-- //ng-repeat  -->
-                                <!-- list 1 -->
-
-                            </div>
-
-
-                        </div>
-                    </div>
-
-                    <button ng-click="ctrl.deleteEquipment( equipment._id )">Remove</button>
-
-                    <!-- Show HTML: -->
-
-                    <input type="button" value="Edit Info" ng-model="myVar" ng-click="ctrl.editEquipment( equipment )">
-
-
-                    <div ng-show="myVar">
-
-
-                    </div>
-
-                </div>
-            </div>
+    <!-- Footer -->
+    <footer style="background-color: #333; color: white; padding: 20px; text-align: center; font-size: 14px;">
+        <div>
+            <p>&copy; 2025 PatrolPeakPlanner. All rights reserved.</p>
+            <p>
+                <!-- <a href="https://github.com/PatrolPeakPlanner/PatrolPeakPlanner" target="_blank"
+                    style="color: #fff; text-decoration: underline;">
+                    View on GitHub
+                </a> -->
+            </p>
+            <p>Contact: <a href="mailto:support@patrolpeakplanner.com"
+                    style="color: #fff;">Peter@PatrolPeakPlanner.com</a></p>
         </div>
-    </div>
-    </div>
-    <!-- end of resupply equipment -->
-
-    <!-- Side Nav - Scheduling Lifeguardler Location -->
-    <div id="mySidenavScheduling" style="
-            height: 100%;
-            width: 0px;
-            position: fixed;
-            z-index: 4;
-            top: 0;
-            right: 0;
-            background-color: #B4CDE0;
-            overflow-x: hidden;
-            transition: 0.5s;
-            padding-top: 60px;
-            box-shadow: 2px 2px 10px #000000;">
-
-        <div style="margin: 20px 20px">
-            <div class="closeXButton" onclick="closeSchedulingNav()"></div>
-
-            <h3>Add Lifeguardler to Daily Schedule</h3>
-
-            <form action="/action_page.html">
-                <!-- <label for="fname">Patroller Name:</label><br> -->
-                <input type="text" id="fname" name="fname" value="Patroller Name"><br>
-                <!-- <label for="fname">Location:</label><br> -->
-                <input type="text" id="fname" name="fname" value="Location"><br>
-                <!-- <label for="lname">Time:</label><br> -->
-                <input type="text" id="lname" name="lname" value="Time"><br><br>
-                <input type="submit" value="Submit">
-            </form>
-
-            <p>If you click the "Submit" button, the form-data will be sent to a page called "/action_page.html".</p>
-
-            <p>=======================</p>
-
-            <h3>Daily Lifeguardler Schedule:</h3>
-            <p>Name:
-                <br>Location:
-                <br>Time:
-            </p>
-
-            <p>Name:
-                <br>Location:
-                <br>Time:
-            </p>
-
-            <p> Name:
-                <br>Location:
-                <br>Time:
-            </p>
-
-            <p>Name:
-                <br>Location:
-                <br>Time:
-            </p>
-
-        </div>
-    </div>
-
-    <!-- Side Nav - Safety Signage - Check List -->
-    <div id="mySidenavSafetySignage" style="
-                height: 100%;
-                width: 0px;
-                position: fixed;
-                z-index: 4;
-                top: 0;
-                right: 0;
-                background-color: #B4CDE0;
-                overflow-x: hidden;
-                transition: 0.5s;
-                padding-top: 60px;
-                box-shadow: 2px 2px 10px #000000;">
-
-        <div style="margin: 20px 20px">
-            <div class="closeXButton" onclick="closeSafetySignageNav()"></div>
-            <h3>Add New Safety Signage to<br>Check List </h3>
-            <form action="/action_page.html">
-                <!-- <label for="fname">Equipment Name:</label><br> -->
-                <input type="text" id="fname" name="fname" value="Safety Signage Name"><br>
-                <!-- <label for="lname">Location:</label><br> -->
-                <input type="text" id="lname" name="lname" value="Location"><br><br>
-                <input type="submit" value="Submit">
-            </form>
-            <p>If you click the "Submit" button, the form-data will be sent to a page called "/action_page.html".</p>
-
-            <p>=======================</p>
-
-            <h3>Safety Signage Check List</h3>
-            <p>Name:
-                <br>Location:
-                <br>Status:
-            </p>
-
-            <p>Name:
-                <br>Location:
-                <br>Status:
-            </p>
-
-            <p> Name:
-                <br>Location:
-                <br>Status:
-            </p>
-
-            <p>Name:
-                <br>Location: {{test.location.equipment}}
-                <br>Status: {{test.status.equipment}}
-            </p>
-
-        </div>
-    </div>
-
-
-
-
-    <!-- Resupply Section -->
-    <div style="background-color:#F1F1F1; width: 20%">
-        <div id="ResupplyEquipmentID">
-
-        </div>
-    </div>
-
-    </div>
-    <!-- end of checklist -->
-    <!-- side nav login -->
-    <!-- <nav class="newNavBar"> -->
-
-    <!-- <div class="NewNavBarLoginRegister"> -->
-
-    <!-- <div class="sidenav" id="mySidenav"> -->
-    <!-- <a class="closebtn" ng-click="ctrl.closeNav()">&times;</a> -->
-    <!--//////  Partials login-form ////-->
-    <!-- <div ng-include="'partials/login_form.html'"></div> -->
-    <!--//////  end of login partial ////-->
-    <!-- </div> -->
-
-    <!-- </div> -->
-    <!-- </nav> -->
-
-    <!-- side nav Register -->
-    <!-- <nav class="newNavBar"> -->
-
-    <!-- <div class="NewNavBarLoginRegister"> -->
-
-    <!-- <div class="sidenav" id="mySideNavRegister"> -->
-    <!-- <a class="closebtn" ng-click="ctrl.closeNavRegister()">&times;</a> -->
-    <!-- ////// Partials Register Form ////-->
-    <!-- <div ng-include="'partials/register.html'"></div> -->
-    <!--//////  end partials//// -->
-    <!-- </div> -->
-
-    <!-- </div> -->
-    <!-- </nav> -->
-    <!-- end of side nav -->
-
-<!-- Cookie Popup -->
-<div id="cookie-popup"
-    style="position: fixed; bottom: 20px; left: 20px; right: 20px; background: #fff; border: 1px solid #ccc; padding: 20px; z-index: 9999; display: block; font-family: Arial, sans-serif; font-size: 14px;">
-    <p>
-        We use cookies to improve your experience on our site. By continuing, you agree to our use of cookies.
-        Read our <a href="https://patrolpeakplanner.github.io/PatrolPeakPlanner/privacy-policy.html" target="_blank" style="color: blue; text-decoration: underline;">Privacy
-            Policy</a> for more information.
-    </p>
-    <button onclick="acceptCookies()"
-        style="padding: 10px 20px; background-color: #4CAF50; color: white; border: none; cursor: pointer;">
-        Accept Cookies
-    </button>
-</div>
-
-<script>
-    // Show popup if cookies not yet accepted
-    // if (!localStorage.getItem('cookiesAccepted')) {
-    //     document.getElementById('cookie-popup').style.display = 'block';
-    // }
-
-    // Function to accept cookies
-    function acceptCookies() {
-        // localStorage.setItem('cookiesAccepted', 'true');
-        document.getElementById('cookie-popup').style.display = 'none';
-    }
-</script>
-
-    <footer>
-        <!-- <div class="footerdivparent"> -->
-        <div class="footerDiv" style="background-color: lightblue; text-align: center;">
-            <br>
-            <div>Peter@PatrolPeakPlanner.com</div>
-            <div> &copy; 2024-2025 PatrolPeakPlanner LLC <br>
-                All Rights Reserved.</div>
-                <br>
-            </div>
-        </div>
-
     </footer>
-
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
-        integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
-        integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
-        crossorigin="anonymous"></script>
-
 
 </body>
 
 </html>
-
-<!-- //References:
-// * BEST *
-// Tutorial MondoDB Node.js Auth0
-// https://www.youtube.com/watch?v=ardeKHEN1j4
-
-
-// Tutorial for Database set up CRUD + node.js + MongoDB
-// https://www.youtube.com/watch?v=9OfL9H6AmhQ
-
-// https://www.youtube.com/watch?v=EcJERV3IiLM -->
