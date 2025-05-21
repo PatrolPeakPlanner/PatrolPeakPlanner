@@ -1,7 +1,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <script></script>
   <title>User Auth & Checklist App</title>
+<!-- <script src="app.js" ></script> -->
   <style>
     body { font-family: Arial, sans-serif; margin: 0; }
     input, button { margin: 5px; padding: 5px; }
@@ -13,45 +15,44 @@
   </style>
 </head>
 <body>
+
+
+
 <div class="mainTopnumber">
     
-       
+  
+<!-- top nav bar -->
+<div style="z-index: 10;" class="topnav">
+    <div style="height: 50px; text-decoration: none;  background-color: darkgrey; z-index: 10;" class="topnav1">
+        <a class="aTagTopNavDivLogo" style="font-size: 22px; text-decoration: none; "
+            href="https://patrolpeakplanner.github.io/PatrolPeakPlanner/home.html">
+            <div style="z-index: 10; color: black; margin-left:20px;margin-top: 0px; padding-top: 5px; "
+                class="mainLogo1">
 
-    <!-- top nav bar -->
-    <div style="z-index: 10;" class="topnav">
-
-        <div style="text-decoration: none;  background-color: darkgrey; z-index: 10;" class="topnav1">
-            <a class="aTagTopNavDivLogo" style="font-size: 22px; text-decoration: none; "
-                href="https://patrolpeakplanner.github.io/PatrolPeakPlanner/home.html">
-                <div style="z-index: 10; color: black; margin-left:20px;margin-top: 0px;padding-top: 25px;"
-                    class="mainLogo1">
-
-                    <h3
-                        style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-size: 36px; color: white; text-shadow: 0px 0px 10px black;">
-                        PATROLPEAKPLANNER </h3>
-            </a>
-            <a href="https://patrolpeakplanner.github.io/PatrolPeakPlanner/home.html"><button
-                    style=" text-decoration: none; border-radius: 20px; font-size: 12px;">LIFEGAURD</button>
-            </a>
-            <a href="https://patrolpeakplanner.github.io/PatrolPeakPlanner/indexpage.html"><button
-                    style=" text-decoration: none; border-radius: 20px; font-size: 12px;">SKI PATROL</button>
-            </a>
-            <!-- <a href="/Users/ptk726/Desktop/dev/PatrolPeakPlanner/index.html" ><button style="font-size: 12px;">LOGIN
-                </button> -->
-            </a>
-            <!-- <a href="https://patrolpeakplanner.github.io/PatrolPeakPlanner/index.html"><button onclick="ShowSignUp()" style=" text-decoration: none; border-radius: 20px; font-size: 12px;">SIGNUP & LOGIN
-                </button>
+                <div
+                    style=" padding: 5px 10px; display: flex; float: left; width: auto; font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-size: 25px; color: white; text-shadow: 0px 0px 10px black;">
+                    PATROLPEAKPLANNER </div>
+        </a>
+        <!-- <a style="display: flex; float: right; font-size: 20px; padding: 20px;" onclick="openNav()" >
+                 <b>MENU</b>
             </a> -->
-
-        </div>
-
-        <br><br>
+        <a style="text-decoration: none; color: white; display: flex; float: right; font-size: 12px; padding:  12px 10px ;"
+            href="https://patrolpeakplanner.github.io/PatrolPeakPlanner/indexpage.html">
+            <b>LIFEGAURD</b>
+        </a>
+        <a style="text-decoration: none; color: white; display: flex; float: right; font-size: 12px; padding:  12px 10px ;"
+            href="https://patrolpeakplanner.github.io/PatrolPeakPlanner/home.html">
+            <b>SKI PATROL</b>
+        </a>
     </div>
 </div>
+</div>
 <!-- end of top nav -->
+
  <div
-        style="background-image: url('https://github.com/PatrolPeakPlanner/PatrolPeakPlanner/blob/main/ImagePool.jpg?raw=true'); height: 1000px; background-repeat: no-repeat; background-size: cover; text-align: left; padding: 0 50px; font-size: 20px; font-family: arial; color: white; text-shadow: 0px 0px 3px black">
-        <br>
+        style="background-image: url('https://github.com/PatrolPeakPlanner/PatrolPeakPlanner/blob/main/ImagePool.jpg?raw=true'); height: 1000px; background-repeat: no-repeat; background-size: cover; text-align: left; padding: 0 0px; font-size: 20px; font-family: arial; color: white; text-shadow: 0px 0px 3px black">
+    
+       
 
 
   <!-- <h1>User Authentication & Checklist App</h1> -->
@@ -145,6 +146,18 @@
 <!-- //////// -->
 
   <script>
+
+    function openNav() {
+            "use strict";
+            document.getElementById("mySidenav").style.width = "250px";
+            console.log("opened nav")
+        }
+
+        function closeNav() {
+            "use strict";
+            document.getElementById("mySidenav").style.width = "0px";        }
+
+
     function ShowSignUp() {
         document.getElementById("SignUpID").style.display = "block";
         document.getElementById("SignUpCenterButtonID").style.display = "none";
